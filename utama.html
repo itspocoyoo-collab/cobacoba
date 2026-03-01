@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validasi Password</title>
+    <link rel="stylesheet" type="text/css" href="ini.css">
+</head>
+
+<body>
+    <form id="FormKatalog" onsubmit="return validasiJenisLayanan()">
+        <h2>Formulir Katalog</h2>
+
+        <div class="form-group">
+            <label for="idkatalog">ID Katalog</label>
+            <span class="separator">:</span>
+            <input type="text" id="idkatalog" name="idkatalog" required>
+        </div>
+
+        <div class="form-group"> 
+            <label for="namakatalog">Nama Katalog</label>
+            <span class="separator">:</span>
+            <input type="text" id="namakatalog" name="namakatalog" required>
+        </div>
+
+        <div class="form-group"> 
+            <label for="harga">Harga</label>
+            <span class="separator">:</span>
+            <input type="text" id="harga" name="harga" required>
+        </div>
+
+        <div class="form-group">
+            <label for="varian">Varian</label>
+            <span class="separator">:</span>
+            <select id="varian" name="varian" required>
+                <option value="">Pilih Varian</option>
+                <option value="Reguler">Reguler</option>
+                <option value="Express">Express</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="satuan">Satuan</label>
+            <span class="separator">:</span>
+            <select id="satuan" name="satuan" required>
+                <option value="">Pilih Satuan</option>
+                <option value="Kg">Kg</option>
+                <option value="Pcs">Pcs</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="status">Status</label>
+            <span class="separator">:</span>
+            <select id="status" name="status" required>
+                <option value="">Pilih Status</option>
+                <option value="Aktif">Aktif</option>
+                <option value="Non-Aktif">Non-Aktif</option>
+            </select>
+        </div>
+
+        <input type="submit" value="Tambahkan">
+        
+        <table class="table1">
+        <tr>
+            <th>ID Katalog</th>
+            <th>Jenis Layanan</th>
+            <th>Varian</th>
+            <th>Satuan</th>
+            <th>Status</th>
+            <th>Aksi</th>
+        </tr>
+        <tr>
+            <td>K001</td>
+            <td>Cuci Kering</td>
+            <td>Reguler</td>
+            <td>Kg</td>
+            <td>Aktif</td>
+            <td>
+                <button type="button" class="btn-ubah">Ubah</button>
+                <button type="button" class="btn-hapus">Hapus</button>
+            </td>
+        </tr>
+    </table>
+    </form>
+
+    <script>
+        function validasiJenisLayanan() {
+            let jenisLayanan = document.getElementById("jenislayanan").value;
+            let pola = /^[a-zA-Z' ]+$/; // Hanya huruf, spasi, dan petik satu yang diperbolehkan
+
+            if (!pola.test(jenisLayanan)) {
+                alert("Jenis Layanan hanya boleh berisi huruf dan tanda petik satu (')");
+                return false;
+            }
+
+            alert("Jenis Layanan valid!");
+            return true;
+        }
+    </script>
+</body>
+</html>
